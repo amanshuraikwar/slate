@@ -215,10 +215,10 @@
             <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
           </li>
           <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="Kittens">Kittens</a>
+            <a href="#e-sign" class="toc-h1 toc-link" data-title="E-Sign">E-Sign</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="Get All Kittens">Get All Kittens</a>
+                    <a href="#initiateesign" class="toc-h2 toc-link" data-title="initiateEsign">initiateEsign</a>
                   </li>
               </ul>
           </li>
@@ -253,9 +253,79 @@ Kittn expects for the API key to be included in all API requests to the server i
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
 </aside> -->
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"api"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"meowmeowmeow"</span><span class="w">
+<h1 id='e-sign'>E-Sign</h1><h2 id='initiateesign'>initiateEsign</h2>
+<blockquote>
+<p>Request Header:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"content-Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"accept"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"Content-Hash"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;salt_id:hash&gt;&gt;"</span><span class="w">
 </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Request Body:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"headers"</span><span class="w"> </span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"client_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub_client_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"channel_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;WEB_APP|MOBILE_APP&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"channel_version"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stan"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"client_ip"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transmission_datetime"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"operation_mode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;SELF|ASSISTED|SYSTEM&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"run_mode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;REAL&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actor_type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_handle_type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_handle_value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"function_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;ESIGN&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"function_sub_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;DEFAULT&gt;&gt;"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"request"</span><span class="w"> </span><span class="p">:</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"client_request_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auth_mode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;1|2|3&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"success_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"failure_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"consent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;Y|N&gt;&gt;"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"esp_sdk_channel"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;ANDROID|WEB&gt;&gt;"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>The above command returns response JSON as below:</p>
+
+<p>Response Header:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"content-Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"Content-Hash"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;salt_id:hash&gt;&gt;"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Response Body:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"response"</span><span class="w"> </span><span class="p">:</span><span class="w"> 
+    </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"response_data"</span><span class="w"> </span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"redirect_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"esp_request_xml"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="s2">"response_status"</span><span class="w"> </span><span class="p">:</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;SUCCESS | FAIL&gt;&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">   
+</span><span class="p">}</span><span class="w">
+
 </span></code></pre>
 <!-- ```python
 import kittn
@@ -276,27 +346,28 @@ let api = kittn.authorize('meowmeowmeow');
 let kittens = api.kittens.get();
 ``` -->
 
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
+<!-- > The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+``` -->
+
+<p>This section describes the request response format common throughout the api.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://example.com/api/kittens</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
