@@ -406,22 +406,40 @@ let kittens = api.kittens.get();
 </tr>
 </thead><tbody>
 <tr>
-<td>client_code</td>
+<td>client_request_id</td>
 <td>Y</td>
-<td>AlphaNumeric</td>
-<td>Client Identifier. It will be the unique code assigned to hosted Client</td>
+<td>Alphanumeric</td>
+<td>Created by client for tracking his request</td>
 </tr>
 <tr>
-<td>sub_client_code</td>
+<td>auth_mode</td>
 <td>Y</td>
-<td>AlphaNumeric</td>
-<td>Unique Identifier assigned to Sub Client like Sub AUA. Identifies the Sub AUA client who has initiated the request. For each Sub client platform will issue a client code. Should be same as client_code in case of client itself doing transaction.</td>
+<td>Numeric</td>
+<td>&quot;Authentication Mode being used for e-KYC. Authentication, either to be performed by ESP, or as already made by the ASP. Allowed values are: OTP = 1, Fingerprint = 2, IRIS = 3</td>
 </tr>
 <tr>
-<td>channel_code</td>
+<td>success_url</td>
+<td>Y</td>
+<td>Alphanumeric</td>
+<td>This should be a valid url. We will redirect the response on this URL if it was a success. Example: https://mydomain.com/success.html</td>
+</tr>
+<tr>
+<td>failure_url</td>
+<td>Y</td>
+<td>Alphanumeric</td>
+<td>This should be a valid url. We will redirect response on this URL if it was a failure. This can be same as successUrl. Example: https://mydomain.com/failure.html</td>
+</tr>
+<tr>
+<td>consent</td>
+<td>Y</td>
+<td>Alphanumeric</td>
+<td>The name which would be displayed in the digital signature. No name would be displayed in the signature if this is missing.</td>
+</tr>
+<tr>
+<td>esp_sdk_channel</td>
 <td>Y</td>
 <td>Enum</td>
-<td>Identifies the channel used by client to initiate request to the platform.  Eg : MOBILE_APP, WEB_APP</td>
+<td>Indicates whether ASP wants to perform transaction using ESP web page or ESP Andoid apk.</td>
 </tr>
 </tbody></table>
 <h3 id='rsponse-http-header-parameters'>Rsponse HTTP Header Parameters</h3>
