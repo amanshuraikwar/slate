@@ -370,7 +370,7 @@ let kittens = api.kittens.get();
 <p>This Api is used to initiate eSign transaction with ESP.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://&lt;&lt;host&gt;:&lt;port&gt;/&lt;env&gt;/api/2.1/initiateEsign</code></p>
-<h3 id='query-parameters'>Query Parameters</h3>
+<h3 id='request-http-header-parameters'>Request HTTP Header Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -385,11 +385,63 @@ let kittens = api.kittens.get();
 <td>AlphaNumeric</td>
 <td>MIME type of data found within a request or response message’s body.</td>
 </tr>
+<tr>
+<td>accept</td>
+<td>Y</td>
+<td>AlphaNumeric</td>
+<td>Used by client to specify the acceptable media type.</td>
+</tr>
+<tr>
+<td>Content-Hash</td>
+<td>Y</td>
+<td>AlphaNumeric</td>
+<td>Salted Hash of http request body. hash=SHA-256(salt+JsonRequestBody)</td>
+</tr>
+</tbody></table>
+<h3 id='request-http-body-parameters'>Request HTTP Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>(Y/N/C)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
 </tbody></table>
 
-<aside class="success">
+<p>client_code | Y | AlphaNumeric | Client Identifier. It will be the unique code assigned to hosted Client
+sub_client_code | Y | AlphaNumeric | Unique Identifier assigned to Sub Client like Sub AUA. Identifies the Sub AUA client who has initiated the request. For each Sub client platform will issue a client code. Should be same as client_code in case of client itself doing transaction.
+channel_code | Y | Enum | Identifies the channel used by client to initiate request to the platform.  Eg : MOBILE_APP, WEB_APP</p>
+<h3 id='rsponse-http-header-parameters'>Rsponse HTTP Header Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>(Y/N/C)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>content-Type | Y | Alphanumeric | MIME type of response message’s body
+Content-Hash | Y | AlphaNumeric | Salted Hash of http response body. hash=SHA-256(salt+JsonResponseBody)</p>
+<h3 id='rsponse-http-body-parameters'>Rsponse HTTP Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>(Y/N/C)</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+</tbody></table>
+
+<p>redirect_url | C | AlphaNumeric | ESP redirect URL. You have to redirect user to this url to complete the esign transaction. Mandatory in case of esp_sdk_channel is WEB
+esp_request_xml | C | AlphaNumeric | Base64 encoded request xml that should be passed to ESP android sdk. Mandatory in case of esp_sdk_channel is ANDROID</p>
+
+<!-- <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
-</aside>
+</aside> -->
 
 <!-- ## Get a Specific Kitten
 
