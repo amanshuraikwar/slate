@@ -486,6 +486,50 @@ let kittens = api.kittens.get();
 <td>Base64 encoded request xml that should be passed to ESP android sdk. Mandatory in case of esp_sdk_channel is ANDROID</td>
 </tr>
 </tbody></table>
+<h3 id='rsponse-codes'>Rsponse Codes</h3>
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SUCCESS</td>
+<td>000</td>
+<td>Transaction is processed successfully.</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>321001</td>
+<td>No esign request found for client_request_id</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>321002</td>
+<td>Could not download the document</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>321003</td>
+<td>Could not calculate hash of the document</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>321004</td>
+<td>could not upload temp document</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>321005</td>
+<td>Esign Is failed</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>321006</td>
+<td>Could not download document (while attaching the signature)</td>
+</tr>
+</tbody></table>
 
 <!-- <aside class="success">
 Remember — a happy kitten is an authenticated kitten!
