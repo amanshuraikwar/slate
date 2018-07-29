@@ -367,26 +367,23 @@ let kittens = api.kittens.get();
 ]
 ``` -->
 
-<p>This section describes the request response format common throughout the api.</p>
+<p>This Api is used to initiate eSign transaction with ESP.</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
+<p><code>POST https://&lt;&lt;host&gt;:&lt;port&gt;/&lt;env&gt;/api/2.1/initiateEsign</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Mandatory(Y/N/C)</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
+<td>content-Type</td>
+<td>Y</td>
+<td>AlphaNumeric</td>
+<td>MIME type of data found within a request or response message’s body.</td>
 </tr>
 </tbody></table>
 
