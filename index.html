@@ -366,12 +366,6 @@
 <td>Anum</td>
 <td>Used by client to specify the acceptable media type.</td>
 </tr>
-<tr>
-<td>Content-Hash</td>
-<td>Y</td>
-<td>Anum</td>
-<td>Salted Hash of http request body. hash=SHA-256(salt+JsonRequestBody)</td>
-</tr>
 </tbody></table>
 <h3 id='request-http-body-parameters'>Request HTTP Body Parameters</h3>
 <table><thead>
@@ -475,37 +469,43 @@
 <tr>
 <td>client_request_id</td>
 <td>Y</td>
-<td>Alphanumeric</td>
+<td>Anum</td>
 <td>Created by client for tracking his request</td>
 </tr>
 <tr>
 <td>auth_mode</td>
 <td>Y</td>
-<td>Numeric</td>
+<td>Num</td>
 <td>&quot;Authentication Mode being used for e-KYC. Authentication, either to be performed by ESP, or as already made by the ASP. Allowed values are: OTP = 1, Fingerprint = 2, IRIS = 3</td>
+</tr>
+<tr>
+<td>environment</td>
+<td>Y</td>
+<td>SANDBOX<br>PREPROD<br>PROD</td>
+<td>Environment in which client is hitting the request</td>
 </tr>
 <tr>
 <td>success_url</td>
 <td>Y</td>
-<td>Alphanumeric</td>
+<td>Anum</td>
 <td>This should be a valid url. We will redirect the response on this URL if it was a success. Example: https://mydomain.com/success.html</td>
 </tr>
 <tr>
 <td>failure_url</td>
 <td>Y</td>
-<td>Alphanumeric</td>
+<td>Anum</td>
 <td>This should be a valid url. We will redirect response on this URL if it was a failure. This can be same as successUrl. Example: https://mydomain.com/failure.html</td>
 </tr>
 <tr>
 <td>consent</td>
 <td>Y</td>
-<td>Alphanumeric</td>
+<td>Y<br>N</td>
 <td>The name which would be displayed in the digital signature. No name would be displayed in the signature if this is missing.</td>
 </tr>
 <tr>
 <td>esp_sdk_channel</td>
 <td>Y</td>
-<td>Enum</td>
+<td>ANDROID<br>WEB</td>
 <td>Indicates whether ASP wants to perform transaction using ESP web page or ESP Andoid apk.</td>
 </tr>
 </tbody></table>
@@ -513,7 +513,7 @@
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>(Y/N/C)</th>
+<th>Mn</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -521,21 +521,15 @@
 <tr>
 <td>content-Type</td>
 <td>Y</td>
-<td>Alphanumeric</td>
+<td>Anum</td>
 <td>MIME type of response message’s body</td>
-</tr>
-<tr>
-<td>Content-Hash</td>
-<td>Y</td>
-<td>AlphaNumeric</td>
-<td>Salted Hash of http response body. hash=SHA-256(salt+JsonResponseBody)</td>
 </tr>
 </tbody></table>
 <h3 id='rsponse-http-body-parameters'>Rsponse HTTP Body Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>(Y/N/C)</th>
+<th>Mn</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
@@ -543,13 +537,13 @@
 <tr>
 <td>redirect_url</td>
 <td>C</td>
-<td>AlphaNumeric</td>
+<td>Anum</td>
 <td>ESP redirect URL. You have to redirect user to this url to complete the esign transaction. Mandatory in case of esp_sdk_channel is WEB</td>
 </tr>
 <tr>
 <td>esp_request_xml</td>
 <td>C</td>
-<td>AlphaNumeric</td>
+<td>Anum</td>
 <td>Base64 encoded request xml that should be passed to ESP android sdk. Mandatory in case of esp_sdk_channel is ANDROID</td>
 </tr>
 </tbody></table>
@@ -568,7 +562,7 @@
 </tr>
 <tr>
 <td>FAIL</td>
-<td>321001</td>
+<td><aside class="warning">321001</aside></td>
 <td>No esign request found for client_request_id</td>
 </tr>
 <tr>
