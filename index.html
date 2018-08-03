@@ -286,40 +286,38 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"content-Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"accept"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"Content-Hash"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;salt_id:hash&gt;&gt;"</span><span class="w">
+  </span><span class="s2">"accept"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Request Body:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"headers"</span><span class="w"> </span><span class="p">:</span><span class="w"> 
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"client_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"sub_client_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"channel_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;WEB_APP|MOBILE_APP&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"channel_version"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"stan"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"client_ip"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"transmission_datetime"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"operation_mode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;SELF|ASSISTED|SYSTEM&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"run_mode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;REAL&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"actor_type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"user_handle_type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"user_handle_value"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"location"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"function_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;ESIGN&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"function_sub_code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;DEFAULT&gt;&gt;"</span><span class="w">
+    </span><span class="s2">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"client_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub_client_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"channel_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Web"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"channel_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15281934817114"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"client_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49.205.221.149"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transmission_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1428393481435"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"operation_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SELF"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"run_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRIAL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actor_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTHER"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_handle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_handle_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a@b.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"function_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ESIGN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"function_sub_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEFAULT"</span><span class="w">
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"request"</span><span class="w"> </span><span class="p">:</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"client_request_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"auth_mode"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;1|2|3&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"success_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"failure_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"consent"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;Y|N&gt;&gt;"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"esp_sdk_channel"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;ANDROID|WEB&gt;&gt;"</span><span class="w">
+    </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"client_request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345132"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auth_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PREPROD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"success_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.google.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"failure_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.google.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"consent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"esp_sdk_channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WEB"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -327,30 +325,22 @@
 <p>Response Header:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"content-Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"Content-Hash"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;salt_id:hash&gt;&gt;"</span><span class="w">
+    </span><span class="s2">"content-Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
 <p>Response Body:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"response"</span><span class="w"> </span><span class="p">:</span><span class="w"> 
-    </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"response_data"</span><span class="w"> </span><span class="p">:</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"redirect_url"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"esp_request_xml"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="s2">"response_status"</span><span class="w"> </span><span class="p">:</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"status"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;SUCCESS | FAIL&gt;&gt;"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"code"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"message"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_value&gt;&gt;"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">}</span><span class="w">   
+    </span><span class="s2">"response_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"esp_request_xml"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"response_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eSign Request created successfully"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre>
 <p>This Api is used to initiate eSign transaction with ESP.</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -367,19 +357,19 @@
 <tr>
 <td>content-Type</td>
 <td>Y</td>
-<td>AlphaNumeric</td>
+<td>Anum</td>
 <td>MIME type of data found within a request or response message’s body.</td>
 </tr>
 <tr>
 <td>accept</td>
 <td>Y</td>
-<td>AlphaNumeric</td>
+<td>Anum</td>
 <td>Used by client to specify the acceptable media type.</td>
 </tr>
 <tr>
 <td>Content-Hash</td>
 <td>Y</td>
-<td>AlphaNumeric</td>
+<td>Anum</td>
 <td>Salted Hash of http request body. hash=SHA-256(salt+JsonRequestBody)</td>
 </tr>
 </tbody></table>
@@ -387,11 +377,101 @@
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>(Y/N/C)</th>
+<th>Mn</th>
 <th>Type</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>client_code</td>
+<td>Y</td>
+<td>Anum</td>
+<td></td>
+</tr>
+<tr>
+<td>sub_client_code</td>
+<td>Y</td>
+<td>Anum</td>
+<td></td>
+</tr>
+<tr>
+<td>channel_code</td>
+<td>Y</td>
+<td>WEB_APP<br>MOBILE_APP</td>
+<td></td>
+</tr>
+<tr>
+<td>channel_version</td>
+<td>Y</td>
+<td>Anum</td>
+<td></td>
+</tr>
+<tr>
+<td>stan</td>
+<td>Y</td>
+<td>Anum</td>
+<td></td>
+</tr>
+<tr>
+<td>client_ip</td>
+<td>N</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>transmission_datetime</td>
+<td>Y</td>
+<td>Anum</td>
+<td></td>
+</tr>
+<tr>
+<td>operation_mode</td>
+<td>Y</td>
+<td>SELF<br>ASSISTED<br>SYSTEM</td>
+<td></td>
+</tr>
+<tr>
+<td>run_mode</td>
+<td>Y</td>
+<td>REAL</td>
+<td></td>
+</tr>
+<tr>
+<td>actor_type</td>
+<td>Y</td>
+<td>Anum</td>
+<td></td>
+</tr>
+<tr>
+<td>user_handle_type</td>
+<td>Y</td>
+<td>Anum</td>
+<td></td>
+</tr>
+<tr>
+<td>user_handle_value</td>
+<td>Y</td>
+<td>Anum</td>
+<td></td>
+</tr>
+<tr>
+<td>location</td>
+<td>N</td>
+<td>Anum</td>
+<td></td>
+</tr>
+<tr>
+<td>function_code</td>
+<td>Y</td>
+<td>ESIGN</td>
+<td></td>
+</tr>
+<tr>
+<td>function_sub_code</td>
+<td>Y</td>
+<td>DEFAULT</td>
+<td></td>
+</tr>
 <tr>
 <td>client_request_id</td>
 <td>Y</td>
