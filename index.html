@@ -230,6 +230,9 @@
                   <li>
                     <a href="#initiateesign" class="toc-h2 toc-link" data-title="initiateEsign">initiateEsign</a>
                   </li>
+                  <li>
+                    <a href="#processesigndocument" class="toc-h2 toc-link" data-title="processEsignDocument">processEsignDocument</a>
+                  </li>
               </ul>
           </li>
       </ul>
@@ -539,6 +542,24 @@
 <td>Anum</td>
 <td>Base64 encoded request xml that should be passed to ESP android sdk. Mandatory in case of esp_sdk_channel is ANDROID</td>
 </tr>
+<tr>
+<td>status</td>
+<td>Y</td>
+<td>SUCCESS<br>FAIL</td>
+<td>Application Level status of execution. Details are encapsulated in ResponseStatus.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>Y</td>
+<td>Num</td>
+<td>Error Code in case when Status is FAIL . Please refer below response codes.</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Application Level message depending on status SUCCESS or FAIL.</td>
+</tr>
 </tbody></table>
 <h3 id='rsponse-codes'>Rsponse Codes</h3>
 <aside class="notice">
@@ -698,114 +719,450 @@ These are all the possible response codes and their messages.
 <td>Unknown Error</td>
 </tr>
 </tbody></table>
+<h2 id='processesigndocument'>processEsignDocument</h2>
+<blockquote>
+<p>Request Header:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"content-Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"accept"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Request Body:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"client_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"sub_client_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"client123"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"channel_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Web"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"channel_version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"stan"</span><span class="p">:</span><span class="w"> </span><span class="s2">"15281934817114"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"client_ip"</span><span class="p">:</span><span class="w"> </span><span class="s2">"49.205.221.149"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"transmission_datetime"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1428393481435"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"operation_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SELF"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"run_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TRIAL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"actor_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTHER"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_handle_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EMAIL"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"user_handle_value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"a@b.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"location"</span><span class="p">:</span><span class="w"> </span><span class="s2">"NA"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"function_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ESIGN"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"function_sub_code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DEFAULT"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"client_request_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345132"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auth_mode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"environment"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PREPROD"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"success_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.google.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"failure_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"www.google.com"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"consent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Y"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"esp_sdk_channel"</span><span class="p">:</span><span class="w"> </span><span class="s2">"WEB"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Response Header:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"content-Type"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"application/json"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Response Body:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"response_data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"esp_request_xml"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;&lt;appropriate_xml&gt;&gt;"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"response_status"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"eSign Request created successfully"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUCCESS"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This Api is used to perform the upload/download actions for documents being eSigned.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://&lt;&lt;host&gt;:&lt;port&gt;/&lt;env&gt;/api/2.1/processEsignDocument</code></p>
+<h3 id='request-http-header-parameters-2'>Request HTTP Header Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mn</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content-Type</td>
+<td>Y</td>
+<td>Anum</td>
+<td>MIME type of data found within a request or response message’s body.</td>
+</tr>
+<tr>
+<td>accept</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Used by client to specify the acceptable media type.</td>
+</tr>
+</tbody></table>
+<h3 id='request-http-body-parameters-2'>Request HTTP Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mn</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>client_code</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Client Identifier. It will be the unique code assigned to hosted Client</td>
+</tr>
+<tr>
+<td>sub_client_code</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Unique Identifier assigned to Sub Client like Sub AUA. Identifies the Sub AUA client who has initiated the request. For each Sub client platform will issue a client code. Should be same as client_code in case of client itself doing transaction.</td>
+</tr>
+<tr>
+<td>channel_code</td>
+<td>Y</td>
+<td>WEB_APP<br>MOBILE_APP</td>
+<td>Identifies the channel used by client to initiate request to the platform.  Eg : MOBILE_APP, WEB_APP</td>
+</tr>
+<tr>
+<td>channel_version</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Specifies the version of the Android SDK or Web SDK used by the client application. This is mandatory for Aadhaar Services. Eg : 1.0.1</td>
+</tr>
+<tr>
+<td>stan</td>
+<td>Y</td>
+<td>Anum</td>
+<td>System Trace Number. This will be a unique number generated by the client who is initiating the request and specifies in the request. This number is used to uniquelly identify a service request initiated from the client.</td>
+</tr>
+<tr>
+<td>client_ip</td>
+<td>N</td>
+<td></td>
+<td>Captures the IP Address of the client device, if available.</td>
+</tr>
+<tr>
+<td>transmission_datetime</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Transmission time in System Milli Seconds. Time at which request is initiated from client</td>
+</tr>
+<tr>
+<td>operation_mode</td>
+<td>Y</td>
+<td>SELF<br>ASSISTED<br>SYSTEM</td>
+<td>Specifies the operation mode of the request.<br>SELF - aadhaar holder doing the transaction.<br>ASSISTED - where auth/ekyc is done in operator assisted mode.<br>SYSTEM- where transaction is automated by system. eg. batch demographic authentications.</td>
+</tr>
+<tr>
+<td>run_mode</td>
+<td>Y</td>
+<td>REAL</td>
+<td>Specifies the run mode of the request.  Eg : TRIAL, REAL,RETRY<br>TRIAL - Indicates need for mock run of the transaction. No transaction posting will happen.<br>REAL - Indicates the actual transaction posting request. Only REAL is allowed for doAadhaarService api</td>
+</tr>
+<tr>
+<td>actor_type</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Specifies the type of actor. Based on the business use case of the client, value can be set.<br>Eg: CUSTOMER, MERCHANT, RETAILER etc.</td>
+</tr>
+<tr>
+<td>user_handle_type</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Indicates the type of the user identifier, who has initiated the request.  Eg : MSISDN for mobile number, EMAIL for email address, USERNAME for username</td>
+</tr>
+<tr>
+<td>user_handle_value</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Actual value of user_handle_type. email_address in case user_handle_type is EMAIL.</td>
+</tr>
+<tr>
+<td>location</td>
+<td>N</td>
+<td>Anum</td>
+<td>Specifies the geo location of the device that initiated the service request.</td>
+</tr>
+<tr>
+<td>function_code</td>
+<td>Y</td>
+<td>ESIGN</td>
+<td>Specifies the flavour of the api request.<br>DEFAULT : Specifies the Default Behaviour.</td>
+</tr>
+<tr>
+<td>function_sub_code</td>
+<td>Y</td>
+<td>DEFAULT</td>
+<td>Specifies the flavour of the api request specified by the flavour specified by function_code.<br>DEFAULT : Specifies the Default Behaviour.</td>
+</tr>
+<tr>
+<td>client_request_id</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Created by client for tracking his request</td>
+</tr>
+<tr>
+<td>doc_no</td>
+<td>Y</td>
+<td>Num</td>
+<td>This is document number. client_request_id and doc_no are together used to identify each document uniquely.</td>
+</tr>
+<tr>
+<td>environment</td>
+<td>Y</td>
+<td>SANDBOX<br>PREPROD<br>PROD</td>
+<td>Environment in which client is hitting the request</td>
+</tr>
+<tr>
+<td>doc_content</td>
+<td>N</td>
+<td>Anum</td>
+<td>Base64 encoded content of document to be signed. Mandatory in case of function_sub_code is UPLOAD.</td>
+</tr>
+<tr>
+<td>doc_type</td>
+<td>Y</td>
+<td>pdf<br>xml</td>
+<td>Type of document to be signed.</td>
+</tr>
+<tr>
+<td>reason</td>
+<td>N</td>
+<td>Anum</td>
+<td>Reason of doing esign. Mandatory in case of function_sub_code is UPLOAD.</td>
+</tr>
+<tr>
+<td>signer_name</td>
+<td>N</td>
+<td>Anum</td>
+<td>The name which would be displayed in the digital signature. No name would be displayed in the signature if this is missing.</td>
+</tr>
+<tr>
+<td>signer_location</td>
+<td>N</td>
+<td>Anum</td>
+<td>Optionally specify the location where e-signing is being done.</td>
+</tr>
+<tr>
+<td>filename</td>
+<td>N</td>
+<td>Anum</td>
+<td>Optionally specify the name of the document being signed. By default <client_request_id>+<doc_no>+&quot;.&quot;+<doc_type> will be used as filename</td>
+</tr>
+<tr>
+<td>rectangle</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Comma separated integers indicating coordinates of rectangle where signature will be placed.<br>e.g. 50,400,200,500  for rectangle shown</td>
+</tr>
+<tr>
+<td>page_no</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Indicates comma saperated page no on which you want signature to be placed<br>example1 : 1,4,7 (for specific pages)<br>example2: all - (for all pages)</td>
+</tr>
+</tbody></table>
+<h3 id='rsponse-http-header-parameters-2'>Rsponse HTTP Header Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mn</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>content-Type</td>
+<td>Y</td>
+<td>Anum</td>
+<td>MIME type of response message’s body</td>
+</tr>
+</tbody></table>
+<h3 id='rsponse-http-body-parameters-2'>Rsponse HTTP Body Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Mn</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>signed_filename</td>
+<td>Y</td>
+<td>Anum</td>
+<td>signed document filename</td>
+</tr>
+<tr>
+<td>signed_doc_type</td>
+<td>Y</td>
+<td>pdf<br>xml</td>
+<td>signed document filetype</td>
+</tr>
+<tr>
+<td>signed_doc_content</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Base64 encoded content of signed document.</td>
+</tr>
+<tr>
+<td>public_certificate</td>
+<td>Y</td>
+<td>Anum</td>
+<td>User X509Certificate:  base64 value of eSign user certificate (.cer)</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Y</td>
+<td>SUCCESS<br>FAIL</td>
+<td>Application Level status of execution. Details are encapsulated in ResponseStatus.</td>
+</tr>
+<tr>
+<td>code</td>
+<td>Y</td>
+<td>Num</td>
+<td>Error Code in case when Status is FAIL . Please refer below response codes.</td>
+</tr>
+<tr>
+<td>message</td>
+<td>Y</td>
+<td>Anum</td>
+<td>Application Level message depending on status SUCCESS or FAIL.</td>
+</tr>
+</tbody></table>
+<h3 id='rsponse-codes-2'>Rsponse Codes</h3>
+<aside class="notice">
+These are all the possible response codes and their messages.
+</aside>
 
-<!-- <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside> -->
-
-<!-- ## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete -->
+<table><thead>
+<tr>
+<th>Status</th>
+<th>Code</th>
+<th>Message</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>SUCCESS</td>
+<td>000</td>
+<td>Transaction is processed successfully.</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320001</td>
+<td>client_request_id is mandatory.</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320002</td>
+<td>doc_no is mandatory.</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320003</td>
+<td>client_request_id is missing</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320004</td>
+<td>function_sub_code is missing</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320005</td>
+<td>doc_content is missing</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320006</td>
+<td>Internal-server-error. Contact us.</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320007</td>
+<td>function_sub_code is invalid</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320008</td>
+<td>client_code is not allowed esign</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320009</td>
+<td>doc _type is invalid</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320010</td>
+<td>doc_type is missing</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320011</td>
+<td>doc_no is invalid</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320012</td>
+<td>rectangle is missing</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320013</td>
+<td>reason is missing</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320014</td>
+<td>page_no is invalid</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320015</td>
+<td>doc_no already exists</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320016</td>
+<td>rectangle is invalid</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320017</td>
+<td>Internal-server-error. Contact us.</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320018</td>
+<td>No more uploads are allowed.</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320019</td>
+<td>Invalid doc_content</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320020</td>
+<td>failed to save document. Contact us.</td>
+</tr>
+<tr>
+<td>FAIL</td>
+<td>320021</td>
+<td>Max 1 document is allowed</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
